@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>164367 - Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Contact Me</h2>
+        
+        <form onsubmit="return validateForm(event)">
+            <label>Full Name:</label><br>
+            <input type="text" id="fullName"><br><br>
+
+            <label>Email Address:</label><br>
+            <input type="email" id="email"><br><br>
+
+            <label>Country:</label><br>
+            <input type="text" id="country"><br><br>
+
+            <label>Comments:</label><br>
+            <textarea id="comments" rows="4"></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var country = document.getElementById("country").value;
+            var comments = document.getElementById("comments").value;
+
+            if (name === "" || email === "" || country === "" || comments === "") {
+                alert("Please fill out all fields before submitting.");
+                return false;
+            }
+
+            alert("Thank you, " + name + "! Your form has been submitted successfully.");
+            document.querySelector("form").reset();
+            return true;
+        }
+    </script>
+</body>
+</html>
